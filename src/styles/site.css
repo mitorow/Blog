@@ -775,10 +775,29 @@ a.card:hover {
 }
 .article__body h3 { margin-top: 1.6rem; font-size: 1.1rem; }
 .article__body img {
-  width: 100%;
+  max-width: 100%;
+  /* 縦長写真が画面を占領しないように、高さでも頭打ちにする */
+  max-height: 80vh;
+  width: auto;
   height: auto;
   border-radius: 12px;
-  margin: 1rem 0;
+  margin: 1rem auto;
+}
+/* 画像を小さく出したいとき: パスの末尾に #S / #M / #L を付ける
+   例) ![説明](/assets/img/foo.jpg#M)                                    */
+.article__body img[src$="#S"] { max-width: 280px; }
+.article__body img[src$="#M"] { max-width: 440px; }
+.article__body img[src$="#L"] { max-width: 640px; }
+
+/* キャプション付き画像: ![代替テキスト](/assets/img/foo.jpg "キャプション") */
+.article__body figure { margin: 1.4rem 0; }
+.article__body figure img { margin: 0 auto; }
+.article__body figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
 }
 .article__body video {
   max-width: 100%;

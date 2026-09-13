@@ -38,7 +38,7 @@ thumbnail: /assets/img/Blog関連/SampleThumbnail.png
     
   </div>
   <div style="flex:1;">
-    <img src="/assets/img/Blog関連/C108/りさソフト表紙.png" alt="これで画像表示" style="width:100%;" />
+    <img src="/assets/img/Blog関連/C108/りさソフト表紙.jpg" alt="これで画像表示" style="width:100%;" />
   </div>
 </div>
 
