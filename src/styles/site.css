@@ -775,6 +775,12 @@ a.card:hover {
 }
 .article__body h3 { margin-top: 1.6rem; font-size: 1.1rem; }
 .article__body img { border-radius: 12px; margin: 1rem 0; }
+.article__body video {
+  max-width: 100%;
+  display: block;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
 .article__body pre {
   padding: 14px 16px;
   border-radius: 12px;
