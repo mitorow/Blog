@@ -790,6 +790,8 @@ a.card:hover {
 .article__body img[src$="#L"] { max-width: 640px; }
 
 /* キャプション付き画像: ![代替テキスト](/assets/img/foo.jpg "キャプション") */
+/* 文章と画像が同じ段落にあったとき、分割用に挟まる箱。レイアウトには影響させない */
+.article__body .md-split { display: contents; }
 .article__body figure { margin: 1.4rem 0; }
 .article__body figure img { margin: 0 auto; }
 .article__body figcaption {
