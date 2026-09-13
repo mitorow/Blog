@@ -5,6 +5,7 @@ tags: [開発, 日記]
 thumbnail: /assets/img/Blog関連/SampleThumbnail.png
 ---
 <!-- ここに記事本文を書きます -->
+<!--
 # 見出し1
 ## 見出し2
 ### 見出し3
@@ -25,7 +26,7 @@ thumbnail: /assets/img/Blog関連/SampleThumbnail.png
 
 [これでリンク](https://google.com)
 
-
+![画像の名前](/assets/img/ここに画像.png#S,M,Lで大きさ変更 "ここにキャプション")
 
 <div style="display:flex; gap:1rem;">
   <div style="flex:1;">
@@ -41,4 +42,4 @@ thumbnail: /assets/img/Blog関連/SampleThumbnail.png
     <img src="/assets/img/Blog関連/C108/りさソフト表紙.jpg" alt="これで画像表示" style="width:100%;" />
   </div>
 </div>
-
+-->
