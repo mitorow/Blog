@@ -39,10 +39,6 @@ const { title, tags, thumbnail, links, images, backHref, backLabel } = Astro.pro
     )
   }
 
-  <div class="article__body">
-    <slot />
-  </div>
-
   {
     links.length > 0 && (
       <div class="item__links">
@@ -54,6 +50,10 @@ const { title, tags, thumbnail, links, images, backHref, backLabel } = Astro.pro
       </div>
     )
   }
+
+  <div class="article__body">
+    <slot />
+  </div>
 
   {
     images.length > 0 && (
