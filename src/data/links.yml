@@ -1,18 +1,22 @@
-# トップページに並ぶリンクカード
+# トップページの Links ブロックに並ぶリンク
 # color は chip-0〜chip-7 が使えます(青/紫/桃/橙/緑/黄/水/赤)
-# image を書くとカードの中身がその画像になります(推奨サイズ 800x600px / 4:3)
+# icon は src/components/Icon.astro で定義しているアイコン名
+#   -> icon の行を消すと、代わりに image の画像が表示されます
 - label: GitHub
   url: https://github.com/mitorow
   color: chip-1
+  icon: github
   image: /assets/img/Home関連/github_logo.png
 
-- label: Twitter (X)
+- label: Twitter
   url: https://x.com/Mitorow_uec23
   color: chip-0
+  icon: twitter
   image: /assets/img/Home関連/twitter_logo.png
 
 - label: YouTube
   # note: "みとろーchannel"
   url: https://www.youtube.com/@mitorow
   color: chip-7
+  icon: youtube
   image: /assets/img/Home関連/youtube_logo.png

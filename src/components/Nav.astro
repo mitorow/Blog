@@ -1,44 +1,18 @@
 ---
-import { SECTIONS } from '../lib/site';
+import { NAV } from '../lib/site';
 
 const path = Astro.url.pathname;
-const inWorks = SECTIONS.some((s) => path.startsWith(`/${s.slug}/`));
+/** Home は完全一致、それ以外は配下のページでも点灯させる */
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 
 <nav class="site-nav" id="site-nav">
+  {/* 並び順は src/lib/site.ts の NAV で編集 */}
   <ul class="site-nav__list">
-    <li><a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a></li>
-    <li><a href="/blog/" aria-current={path.startsWith('/blog/') ? 'page' : undefined}>Blog</a></li>
-
-    {/* Works を押すと、その右側に Service / Arts / Games が開く */}
-    <li class="site-nav__works">
-      <button
-        type="button"
-        class="site-nav__toggle"
-        id="works-toggle"
-        aria-expanded={String(inWorks)}
-        aria-controls="works-subnav">Works</button>
-
-      <ul class:list={['site-nav__sub', inWorks && 'is-open']} id="works-subnav">
-        {SECTIONS.map((s) => (
-          <li>
-            <a href={`/${s.slug}/`} aria-current={path.startsWith(`/${s.slug}/`) ? 'page' : undefined}>
-              <span class:list={['dot', s.color]}></span>{s.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </li>
+    {NAV.map((item) => (
+      <li>
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+      </li>
+    ))}
   </ul>
 </nav>
-
-<script>
-  // Works を押すと右側の Service / Arts / Games が開閉する
-  const toggle = document.getElementById('works-toggle');
-  const subnav = document.getElementById('works-subnav');
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = subnav?.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-</script>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemGrid from '../../components/ItemGrid.astro';
+
+const items = await getCollection('ai');
+---
+
+<BaseLayout title="AI">
+  <h1 class="page-title">AI</h1>
+  <p class="page-lead">AIを使ってやってみたことの記録です。</p>
+
+  <ItemGrid items={items} section="ai" />
+</BaseLayout>

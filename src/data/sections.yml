@@ -1,18 +1,22 @@
-# Works の下にぶら下がる3つのセクション。
-# ナビの並び順と、トップページのカードに使われます。
-# image を書くとカードの中身がその画像になります(推奨サイズ 800x600px / 4:3)。
+# 作ったもののセクション。
+# ナビの並び順と、トップページの Works ブロックに使われます。
+# icon は src/components/Icon.astro で定義しているアイコン名
+#   -> icon の行を消すと、代わりに image の画像が表示されます
 - slug: works
   label: Service
   color: chip-4
+  icon: service
   image: /assets/img/Home関連/Service.png
 
 - slug: arts
   label: Arts
   color: chip-3
+  icon: arts
   image: /assets/img/Home関連/Arts.png
 
 - slug: games
   label: Games
   # note: 作ったゲーム
   color: chip-2
+  icon: games
   image: /assets/img/Home関連/Games.png

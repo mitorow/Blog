@@ -1,7 +1,10 @@
 # トップページの Skills タイル(使える技術・触っているもの)
-# name に技術名、note に一言、color に chip-0〜chip-7 を指定します
-- name: 技術名
-  note: 一言メモ
+# 上からアイコン → name(技術名) → note(軽い説明) の順で表示されます
+# icon は src/components/Icon.astro のアイコン名。書かなければアイコンなしになります
+# color は chip-0〜chip-7(青/紫/桃/橙/緑/黄/水/赤)
+- name: AviUtl
+  note: 動画編集
+  icon: aviutl
   color: chip-0
 
 - name: 技術名

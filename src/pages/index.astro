@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PicCard from '../components/PicCard.astro';
+import Icon from '../components/Icon.astro';
 import { SECTIONS, formatDate } from '../lib/site';
 import profile from '../data/profile.yml';
 import links from '../data/links.yml';
@@ -15,16 +15,16 @@ const p = profile as {
   name: string;
   bio?: string;
   facts?: string[];
-  ascii?: string;
 };
 const linkCards = links as {
   label: string;
   note?: string;
   url: string;
   color?: string;
+  icon?: string;
   image?: string | null;
 }[];
-const skillTiles = skills as { name: string; note?: string; color?: string }[];
+const skillTiles = skills as { name: string; note?: string; icon?: string; color?: string }[];
 ---
 
 <BaseLayout title="Home" hero>
@@ -80,6 +80,7 @@ const skillTiles = skills as { name: string; note?: string; color?: string }[];
             <div class="tiles">
               {skillTiles.map((skill) => (
                 <div class:list={['tile', skill.color ?? 'chip-0']}>
+                  {skill.icon && <Icon name={skill.icon} />}
                   <b>{skill.name}</b>
                   {skill.note && <small>{skill.note}</small>}
                 </div>
@@ -89,40 +90,65 @@ const skillTiles = skills as { name: string; note?: string; color?: string }[];
         )
       }
 
-      {/* ASCIIアート(不要なら src/data/profile.yml の ascii を消してください) */}
-      {
-        p.ascii && (
-          <div class="card card--dark">
-            <span class="label">AA</span>
-            <pre class="ascii">{p.ascii}</pre>
-          </div>
-        )
-      }
+      {/* ↓ ここは中身が決まるまでの仮置きです。好きな内容に差し替えてください */}
+      <div class="card">
+        <span class="label">Coming Soon</span>
+        <div class="placeholder">
+          <p>ここに新しいコンテンツが入ります。</p>
+        </div>
+      </div>
 
       {/* 文章のカードを増やしたいときはここに .card を足してください */}
     </div>
 
-    {/* ============ 右側: 画像のカード ============ */}
+    {/* ============ 右側: リンクのカード ============ */}
     <div class="home-col home-col--side">
-      {/* リンク(内容は src/data/links.yml で編集) */}
+      {/* 外部リンク(内容は src/data/links.yml で編集) */}
       {
-        linkCards.map((link) => (
-          <PicCard
-            href={link.url}
-            external
-            label={link.label}
-            note={link.note}
-            color={link.color}
-            image={link.image}
-          />
-        ))
+        linkCards.length > 0 && (
+          <div class="card">
+            <span class="label">Links</span>
+            <div class="tiles">
+              {linkCards.map((link) => (
+                <a
+                  class:list={['tile', 'tile--link', link.color ?? 'chip-0']}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  {link.icon ? (
+                    <Icon name={link.icon} />
+                  ) : (
+                    link.image && <img class="tile__img" src={link.image} alt="" />
+                  )}
+                  <b>{link.label}</b>
+                  {link.note && <small>{link.note}</small>}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
       }
 
-      {/* 作ったもの3種への入口(内容は src/data/sections.yml で編集) */}
+      {/* 作ったものへの入口(内容は src/data/sections.yml で編集) */}
       {
-        SECTIONS.map((s) => (
-          <PicCard href={`/${s.slug}/`} label={s.label} note={s.note} color={s.color} image={s.image} />
-        ))
+        SECTIONS.length > 0 && (
+          <div class="card">
+            <span class="label">Works</span>
+            <div class="tiles">
+              {SECTIONS.map((s) => (
+                <a class:list={['tile', 'tile--link', s.color ?? 'chip-0']} href={`/${s.slug}/`}>
+                  {s.icon ? (
+                    <Icon name={s.icon} />
+                  ) : (
+                    s.image && <img class="tile__img" src={s.image} alt="" />
+                  )}
+                  <b>{s.label}</b>
+                  {s.note && <small>{s.note}</small>}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
       }
     </div>
   </div>

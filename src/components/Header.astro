@@ -3,26 +3,21 @@ import { SITE } from '../lib/site';
 ---
 
 <header class="site-header">
-  <a href="/" class="site-header__name">{SITE.logo}</a>
+  <div class="site-header__inner">
+    <a href="/" class="site-header__name">{SITE.logo}</a>
 
-  <nav class="site-header__quick">
-    <a href="/">home</a>
-    <span aria-hidden="true"></span>
-    <a href="/blog/">blog</a>
-    <span aria-hidden="true"></span>
-    <a href="/works/">works</a>
-  </nav>
-
-  <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="site-nav">
-    <span class="hamburger__line"></span>
-    <span class="hamburger__line"></span>
-    <span class="hamburger__line"></span>
-    <span class="visually-hidden">メニュー</span>
-  </button>
+    {/* スマホ幅だけ表示。2段目のナビを開くためのボタン */}
+    <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="site-nav">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="visually-hidden">メニュー</span>
+    </button>
+  </div>
 </header>
 
 <script>
-  // ハンバーガーメニューの開閉(モバイル)
+  // ハンバーガーメニューの開閉(スマホ)
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('site-nav');
 

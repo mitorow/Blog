@@ -14,11 +14,29 @@ export interface Section {
   label: string;
   note?: string;
   color?: string;
+  /** src/components/Icon.astro のアイコン名。無ければ image が使われる */
+  icon?: string;
   image?: string | null;
 }
 
-/** Works / Arts / Games の3セクション(src/data/sections.yml で編集) */
+/** Service / Arts / Games の3セクション(src/data/sections.yml で編集) */
 export const SECTIONS = sectionsData as Section[];
+
+export interface NavItem {
+  href: string;
+  label: string;
+}
+
+/**
+ * サブヘッダーのナビ。並び順はこの配列のとおり。
+ * Service / Arts / Games は sections.yml から自動で入ります。
+ */
+export const NAV: NavItem[] = [
+  { href: '/', label: 'Home' },
+  { href: '/blog/', label: 'Blog' },
+  ...SECTIONS.map((s) => ({ href: `/${s.slug}/`, label: s.label })),
+  { href: '/ai/', label: 'AI' },
+];
 
 /**
  * タグの色を決める。
