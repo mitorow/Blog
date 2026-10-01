@@ -12,7 +12,7 @@ const blog = defineCollection({
   }),
 });
 
-// Works / Arts / Games / AI は同じ形なので schema を共有する
+// Works / Arts / Games / AI / Memo は同じ形なので schema を共有する
 const itemSchema = z.object({
   title: z.string(),
   tags: z.array(z.string()).default([]),
@@ -35,4 +35,5 @@ export const collections = {
   arts: itemCollection('arts'),
   games: itemCollection('games'),
   ai: itemCollection('ai'),
+  memo: itemCollection('memo'),
 };

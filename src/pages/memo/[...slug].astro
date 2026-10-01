@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemDetail from '../../components/ItemDetail.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('memo');
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<BaseLayout title={item.data.title}>
+  <ItemDetail
+    title={item.data.title}
+    tags={item.data.tags}
+    thumbnail={item.data.thumbnail}
+    links={item.data.links}
+    images={item.data.images}
+    backHref="/memo/"
+    backLabel="Memo">
+    <Content />
+  </ItemDetail>
+</BaseLayout>

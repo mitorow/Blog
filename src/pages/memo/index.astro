@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemGrid from '../../components/ItemGrid.astro';
+
+const items = await getCollection('memo');
+---
+
+<BaseLayout title="Memo">
+  <h1 class="page-title">Memo</h1>
+  <p class="page-lead">あとで自分が困らないように書いておく備忘録です。</p>
+
+  <ItemGrid items={items} section="memo" />
+</BaseLayout>

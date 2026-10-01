@@ -36,6 +36,7 @@ export const NAV: NavItem[] = [
   { href: '/blog/', label: 'Blog' },
   ...SECTIONS.map((s) => ({ href: `/${s.slug}/`, label: s.label })),
   { href: '/ai/', label: 'AI' },
+  { href: '/memo/', label: 'Memo' },
 ];
 
 /**

@@ -7,22 +7,42 @@
   icon: aviutl
   color: chip-0
 
-- name: 技術名
-  note: 一言メモ
+- name: Unity
+  note: ゲーム制作
+  icon: unity
   color: chip-6
 
-- name: 技術名
-  note: 一言メモ
-  color: chip-3
-
-- name: 技術名
-  note: 一言メモ
-  color: chip-4
-
-- name: 技術名
-  note: 一言メモ
+- name: Godot
+  note: ゲーム制作
+  icon: godot
   color: chip-1
 
-- name: 技術名
-  note: 一言メモ
+- name: Affinity
+  note: 画像編集・デザイン
+  icon: affinity
   color: chip-2
+
+- name: CAD
+  note: 3Dモデリング
+  icon: cad
+  color: chip-3
+
+- name: Python
+  note: スクリプト・自動化
+  icon: python
+  color: chip-5
+
+- name: C
+  note: プログラミング
+  icon: c
+  color: chip-4
+
+- name: C#
+  note: プログラミング
+  icon: csharp
+  color: chip-7
+
+- name: Java
+  note: プログラミング
+  icon: java
+  color: chip-0
